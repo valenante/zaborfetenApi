@@ -1,1 +1,1 @@
-web: cd godMode && node index.js
+web: npm install -g serve && serve -s godmodefront/build
