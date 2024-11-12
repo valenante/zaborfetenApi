@@ -13,12 +13,23 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Obtener todas las bebidas
+// Obtener todas las bebidas o filtrar por parámetros (como categoria)
 router.get('/', async (req, res) => {
     try {
-        const bebidas = await Bebida.find();
-        res.status(200).json(bebidas);
+        // Obtener el parámetro 'categoria' de la query string
+        const { categoria } = req.query;
+
+        // Si se pasa un parámetro 'categoria', filtra las bebidas por esa categoría
+        if (categoria) {
+            const bebidas = await Bebida.find({ categoria: categoria });
+            res.status(200).json(bebidas);
+        } else {
+            // Si no hay 'categoria', devuelve todas las bebidas
+            const bebidas = await Bebida.find();
+            res.status(200).json(bebidas);
+        }
     } catch (error) {
+        // En caso de error, devuelve un mensaje de error con el código 500
         res.status(500).json({ error: error.message });
     }
 });

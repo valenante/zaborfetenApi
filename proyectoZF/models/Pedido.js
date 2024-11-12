@@ -77,12 +77,8 @@ const bebidaPedidoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    acompanante: {
+    acompañante: {
         type: String,
-        enum: ['refresco', 'agua tónica', 'soda', 'naranja', 'limón'],
-        required: function() {
-            return this.categoria === 'copa';
-        }
     },
     tipoDeVino: {
         type: String,

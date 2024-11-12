@@ -48,7 +48,8 @@ const bebidaSchema = new Schema({
   cantidad: {
     type: Number,
     required: true
-  }
+  },
+  imagen: { type: String, required: true },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Bebida', bebidaSchema);
