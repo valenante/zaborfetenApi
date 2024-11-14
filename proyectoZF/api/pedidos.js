@@ -28,9 +28,9 @@ router.get('/', async (req, res) => {
 });
 
 // Obtener pedidos por ID de mesa
-router.get('/mesa/:mesaId', async (req, res) => {
+router.get('/mesa/:numeroMesa', async (req, res) => {
     try {
-        const pedidos = await Pedido.find({ mesa: req.params.mesaId });
+        const pedidos = await Pedido.find({ mesa: req.params.numeroMesa }); // Usar numeroMesa en lugar de mesaId
         if (!pedidos.length) {
             return res.status(404).json({ error: 'No se encontraron pedidos para esta mesa' });
         }
@@ -39,6 +39,7 @@ router.get('/mesa/:mesaId', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
 
 // Obtener un pedido por ID
 router.get('/:id', async (req, res) => {

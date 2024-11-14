@@ -24,6 +24,7 @@ const platoRoutes = require('./api/plato'); // Ajusta según la ubicación
 const pedidoRoutes = require('./api/pedidos'); // Ajusta según la ubicación
 const mesaRoutes = require('./api/mesa'); // Ajusta según la ubicación
 const bebidaRoutes = require('./api/bebidas'); // Ajusta según la ubicación
+const notificacionesRoutes = require('./api/notificaciones'); // Ajusta según la ubicación
 
 // Usar rutas
 app.use('/api/auth', authRoutes);
@@ -31,6 +32,7 @@ app.use('/api/platos', platoRoutes);
 app.use('/api/pedidos', pedidoRoutes);
 app.use('/api/mesas', mesaRoutes);
 app.use('/api/bebidas', bebidaRoutes); // Ajusta según la ubicación
+app.use('/api/notificaciones', notificacionesRoutes); // Ajusta según la ubicación
 
 // Configuración del puerto
 const PORT = process.env.PORT || 3000;
